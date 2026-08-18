@@ -30,7 +30,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
                 "element_type": "minecraft:single_pool_element"
             }
         }
-    ] ```,
+    ],
 
   - this will make the structure spawn 4 blocks below where it would have originally spawned, you can change the `heightmap` to be whichever heightmap you're using for your structure,
 
@@ -50,7 +50,8 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             protected StructureProcessorType<?> getType() {
                 return ModStructureProcessors.WARSHIP_PROCESSOR.get();
             }
-        }```, what this does is make the structure not keep lequids from where it's generating,
+        }, 
+        - what this does is make the structure not keep lequids from where it's generating,
 
   - ModStructureProcessors: ```
         public class ModStructureProcessors {
@@ -62,7 +63,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             public static void register(IEventBus modEventBus) {
                 STRUCTURE_PROCESSOR_TYPES.register(modEventBus);
             }
-        } ```,
+        },
 
   - register it in your Main class `ModStructureProcessors.register(modEventBus);`,
 
@@ -74,10 +75,11 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
                 "processor_type": "examplemod:warship_processor"
                 }
             ]
-        } ```
+        }
 
   - and then add it to your template pool:
-  - ``` "elements": [
+  - ``` 
+    "elements": [
         {
         "weight": 1,
         "element": {
