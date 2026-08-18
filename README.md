@@ -87,6 +87,6 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             "processors": "examplemod:warship_processor"
         }
         }
-    ] ```
+    ]
 
 - MORE WILL BE ADDED AS I REMEMBER THEM
