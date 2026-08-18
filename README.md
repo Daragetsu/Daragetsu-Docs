@@ -30,14 +30,15 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
                 "element_type": "minecraft:single_pool_element"
             }
         }
-    ],
+    ]
 
   - this will make the structure spawn 4 blocks below where it would have originally spawned, you can change the `heightmap` to be whichever heightmap you're using for your structure,
 
 - Making Blocks(e.g. stairs, slabs, walls) in Structues that spawn inside of water not waterlog(e.g. Ships)
  > this is for jigsaw structures
   - create a custom structure processor and register it like:
-  - Processor Class: ```
+  - Processor Class: 
+  - ```
         public class WarshipProcessor extends StructureProcessor{
             public static final Codec<WarshipProcessor> CODEC = Codec.unit(WarshipProcessor::new);
             public WarshipProcessor(){
@@ -50,10 +51,11 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             protected StructureProcessorType<?> getType() {
                 return ModStructureProcessors.WARSHIP_PROCESSOR.get();
             }
-        }, 
+        }
         - what this does is make the structure not keep lequids from where it's generating,
 
-  - ModStructureProcessors: ```
+  - ModStructureProcessors: 
+  - ```
         public class ModStructureProcessors {
             public static final DeferredRegister<StructureProcessorType<?>> STRUCTURE_PROCESSOR_TYPES = DeferredRegister
                     .create(Registries.STRUCTURE_PROCESSOR, ExampleMod.MOD_ID);
@@ -63,7 +65,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             public static void register(IEventBus modEventBus) {
                 STRUCTURE_PROCESSOR_TYPES.register(modEventBus);
             }
-        },
+        }
 
   - register it in your Main class `ModStructureProcessors.register(modEventBus);`,
 
@@ -81,13 +83,13 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
   - ``` 
     "elements": [
         {
-        "weight": 1,
-        "element": {
-            "element_type": "minecraft:single_pool_element",
-            "projection": "rigid",
-            "location": "examplemod:ship",
-            "processors": "examplemod:warship_processor"
-        }
+            "weight": 1,
+            "element": {
+                "element_type": "minecraft:single_pool_element",
+                "projection": "rigid",
+                "location": "examplemod:ship",
+                "processors": "examplemod:warship_processor"
+            }
         }
     ]
 
