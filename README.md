@@ -30,8 +30,8 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
                 "element_type": "minecraft:single_pool_element"
             }
         }
-    ]
-  ```,
+    ] ```,
+
   - this will make the structure spawn 4 blocks below where it would have originally spawned, you can change the `heightmap` to be whichever heightmap you're using for your structure,
 
 - Making Blocks(e.g. stairs, slabs, walls) in Structues that spawn inside of water not waterlog(e.g. Ships)
@@ -50,8 +50,8 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             protected StructureProcessorType<?> getType() {
                 return ModStructureProcessors.WARSHIP_PROCESSOR.get();
             }
-        }
-    ```, what this does is make the structure not keep lequids from where it's generating,
+        }```, what this does is make the structure not keep lequids from where it's generating,
+
   - ModStructureProcessors: ```
         public class ModStructureProcessors {
             public static final DeferredRegister<StructureProcessorType<?>> STRUCTURE_PROCESSOR_TYPES = DeferredRegister
@@ -62,9 +62,10 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
             public static void register(IEventBus modEventBus) {
                 STRUCTURE_PROCESSOR_TYPES.register(modEventBus);
             }
-        } 
-    ```,
+        } ```,
+
   - register it in your Main class `ModStructureProcessors.register(modEventBus);`,
+
   - make a new json file under `resources/data/examplemod/worldgen/processor_list` with:
   - ```
         {
@@ -74,6 +75,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
                 }
             ]
         } ```
+
   - and then add it to your template pool:
   - ``` "elements": [
         {
