@@ -4,13 +4,15 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
 
 *this doc is based on Forge 1.20*
 
-- Feature Order Cycle
+### - Feature Order Cycle
  > when creating an custom biome or adding an vanilla placed feature to an already existing biome, sometimes it will throw an "Feature Order Cycle" error when ran with other mods that add biomes, it happens because those biomes also added the vanilla placed feature but in a different order than yours, I have found this solution to be the simplest and also written in the Neoforged docs
   - Make a new configured feature json in your own namespace(e.g. `resources/data/examplemod/worldgen/configured_feature/grass_patch.json`) and copy over the contents of the vanilla configured feature which you want to add,
   - Make a new placed feature json in your own namespace(e.g. `resources/data/examplemod/worldgen/placed_feature/grass_patch.json`) and copy over the contents of the vanilla placed feature which you want to add, and refrence your configured feature instead of the vanilla one,
   - add the placed feature in the biome instead of the vanilla placed feature,
 
-- Making Structures Spawn Into The Ground(e.g. Craters)
+---
+
+### - Making Structures Spawn Into The Ground(e.g. Craters)
  > this is for jigsaw structures
   - in the template pool json(e.g. `resources/data/examplemod/worldgen/template_pool`) in the element which you want to spawn into the ground, add an gravity processor like:
   - ```
@@ -34,7 +36,9 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
 
   - this will make the structure spawn 4 blocks below where it would have originally spawned, you can change the `heightmap` to be whichever heightmap you're using for your structure,
 
-- Making Blocks(e.g. stairs, slabs, walls) in Structues that spawn inside of water not waterlog(e.g. Ships)
+---
+
+### - Making Blocks(e.g. stairs, slabs, walls) in Structues that spawn inside of water not waterlog(e.g. Ships)
  > this is for jigsaw structures
   - create a custom structure processor and register it like:
   - Processor Class: 
@@ -93,4 +97,6 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
         }
     ]
 
-- MORE WILL BE ADDED AS I REMEMBER THEM
+---
+
+### - MORE WILL BE ADDED AS I REMEMBER THEM
