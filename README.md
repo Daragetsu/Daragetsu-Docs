@@ -117,7 +117,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
         "values": [
             "examplemod:item"
         ]
-    }
+    }```
  - ### to render:
  - make a custom item renderer(e.g. YourItemRenderer):
  - ```
