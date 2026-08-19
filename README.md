@@ -108,4 +108,53 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
 
 ---
 
+- adding an curios item and renderring it
+ - ### make an custom item or skip this step if you wanna use an vanilla item
+ - make an json file in the `resources/data/curios/tags/items/` directory, make sure the json name is the same as the curios json's(e.g. belt.json, charm.json)
+ - add:
+ - ```
+ {
+    "values": [
+        "examplemod:item"
+    ]
+ }
+ - ### to render:
+ - make a custom item renderer(e.g. YourItemRenderer):
+ - ```
+    public class MedKitRenderer implements ICurioRenderer {
+
+        @Override
+        public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource bufferSource, int light, float limbSwing,float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw,float headPitch) {
+            matrixStack.pushPose();
+
+            if (slotContext.index() == 0) { // for slots
+                matrixStack.translate(0D, 0D, 0D); // use this to translate the item rendered
+                matrixStack.mulPose(new Quaternionf().rotationX((float) Math.toRadians(0))); // use this to rotate
+                matrixStack.mulPose(new Quaternionf().rotationY((float) Math.toRadians(0))); // use this to rotate
+                matrixStack.mulPose(new Quaternionf().rotationZ((float) Math.toRadians(0))); // use this to rotate
+            } else if (slotContext.index() == 1) {
+                matrixStack.translate(0D, 0D, 0D); // use this to translate the item rendered
+                matrixStack.mulPose(new Quaternionf().rotationX((float) Math.toRadians(0))); // use this to rotate
+                matrixStack.mulPose(new Quaternionf().rotationY((float) Math.toRadians(0))); // use this to rotate
+                matrixStack.mulPose(new Quaternionf().rotationZ((float) Math.toRadians(0))); // use this to rotate
+            }
+
+            //matrixStack.scale(1f, 1f, 1f); // scale if you want to
+
+            ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+            BakedModel bakedModel = itemRenderer.getModel(stack, null, null, 0);
+
+            itemRenderer.render(stack, ItemDisplayContext.GROUND, false, matrixStack, bufferSource, light, OverlayTexture.NO_OVERLAY, bakedModel);
+
+            matrixStack.popPose();
+        }
+    }
+ - make a custom client only class and add:
+ - ```
+    private static void onClientSetup(FMLClientSetupEvent event) {
+        CuriosRendererRegistry.register(ModItems.ITEM.get(), YourItemRenderer::new);
+    }
+ - and make sure to register it in your Main class modEventBus.addListener(ModClient::onClientSetup);
+ - make sure you have added the item model and textures
+
 ### - MORE WILL BE ADDED AS I REMEMBER THEM
