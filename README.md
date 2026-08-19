@@ -113,11 +113,12 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
  - make an json file in the `resources/data/curios/tags/items/` directory, make sure the json name is the same as the curios json's(e.g. belt.json, charm.json)
  - add:
  - 
- ```{
+ ```
+ {
         "values": [
             "examplemod:item"
         ]
-    }```
+    }
  - ### to render:
  - make a custom item renderer(e.g. YourItemRenderer):
  - ```
