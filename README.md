@@ -103,28 +103,7 @@ this doc is just a documentation on stuff I wanna keep track of, a lot of bugs a
  > you need a custom renderer for this
  - Add an AutoGlowingLayer in your renderer constructor:
  - ``` 
-    this.addRenderLayer(new AutoGlowingGeoLayer<>(this){
-            @Override
-            public void render(PoseStack poseStack, T animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
-                RenderType emissiveRenderType = getRenderType(animatable);
-		        getRenderer().reRender(
-                    bakedModel,
-                    poseStack,
-                    bufferSource,
-                    animatable,
-                    emissiveRenderType,
-					bufferSource.getBuffer(emissiveRenderType),
-                    partialTick,
-                    LightTexture.FULL_BRIGHT,
-                    OverlayTexture.NO_OVERLAY,
-                    1,
-                    1,
-                    1,
-                    1
-                );
-            }
-        })
-
+    this.addRenderLayer(new AutoGlowingGeoLayer<>(this))
  - copy your entity texture and name it `<texture_name>_glowmask.png`, open the new file and remove any pixels which you do not want glowing(it will leave you with an mostly empty image)
 
 ---
